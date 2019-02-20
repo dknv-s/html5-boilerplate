@@ -5,16 +5,16 @@ const browserSync = require('browser-sync').create();
 
 const dirs = {
   src: {
-    html: './app/src/*.html',
-    styles: './app/src/sass/*.scss',
-    scripts: './app/src/js/*.js',
-    imgs: './app/src/img/*.*'
+    html: './src/*.html',
+    styles: './src/sass/*.scss',
+    scripts: './src/js/*.js',
+    imgs: './src/img/*.*'
   },
   dist: {
-    html: './app/dist/',
-    styles: './app/dist/css/',
-    scripts: './app/dist/js/',
-    imgs: './app/dist/img/'
+    html: './dist/',
+    styles: './dist/css/',
+    scripts: './dist/js/',
+    imgs: './dist/img/'
   }
 }
 
