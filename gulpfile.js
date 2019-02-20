@@ -22,7 +22,7 @@ const dirs = {
 function browserSyncInit(done) {
   browserSync.init({
     server: {
-      baseDir: './app/dist'
+      baseDir: './dist'
     },
     port: 3000
   });
