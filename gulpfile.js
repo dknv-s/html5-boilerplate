@@ -2,6 +2,9 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const browserSync = require('browser-sync').create();
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 const dirs = {
   src: {
@@ -40,6 +43,7 @@ function html() {
 function scssCompile() {
   return gulp.src(dirs.src.styles)
     .pipe(sass())
+    .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(gulp.dest(dirs.dist.styles))
     .pipe(browserSync.stream());
 }
