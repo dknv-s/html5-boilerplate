@@ -8,7 +8,7 @@ const cssnano = require('cssnano');
 
 const dirs = {
   src: {
-    html: './src/*.html',
+    html: './src/pug/*.pug',
     styles: './src/sass/*.scss',
     scripts: './src/js/*.js',
     imgs: './src/img/*.*'
@@ -35,7 +35,13 @@ function browserSyncInit(done) {
 /* Html */
 function html() {
   return gulp.src(dirs.src.html)
-    .pipe(gulp.dest(dirs.dist.html))
+    .pipe(pug({
+      pretty: true
+    }))
+    .on('error', (err) => {
+      throw new Error(err.message);
+    })
+    .pipe(gulp.dest(dirs.build.html))
     .pipe(browserSync.stream());
 }
 
@@ -56,8 +62,8 @@ function images() {
 }
 
 function watcher(done) {
-  gulp.watch(dirs.src.html, gulp.series(html));
-  gulp.watch(dirs.src.styles, gulp.series(scssCompile));
+  gulp.watch('./src/pug/**/*.pug', gulp.series(html));
+  gulp.watch('./src/sass/**/*.scss', gulp.series(scssCompile));
   gulp.watch(dirs.src.imgs, gulp.series(images));
   done();
 }
