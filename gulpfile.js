@@ -10,7 +10,7 @@ const pug = require('gulp-pug');
 const dirs = {
   src: {
     html: './src/pug/*.pug',
-    styles: './src/sass/*.scss',
+    styles: './src/sass/main.scss',
     scripts: './src/js/*.js',
     imgs: './src/img/*.*'
   },
