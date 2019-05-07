@@ -5,6 +5,7 @@ const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const pug = require('gulp-pug');
 
 const dirs = {
   src: {
