@@ -42,7 +42,7 @@ function html() {
     .on('error', (err) => {
       throw new Error(err.message);
     })
-    .pipe(gulp.dest(dirs.build.html))
+    .pipe(gulp.dest(dirs.dist.html))
     .pipe(browserSync.stream());
 }
 
